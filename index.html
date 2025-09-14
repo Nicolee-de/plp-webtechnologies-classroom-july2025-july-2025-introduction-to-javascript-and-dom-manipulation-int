@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Fundamentals Assignment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🚀 Mastering JavaScript Fundamentals</h1>
+  <p id="welcome">Welcome! Click the button to interact with JavaScript.</p>
+
+  <button id="toggleBtn">Toggle Text</button>
+  <button id="colorBtn">Change Background</button>
+  <button id="listBtn">Generate List</button>
+
+  <ul id="dynamicList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+// =============================
+// Part 1: JavaScript Basics
+// =============================
+
+// Variables, data types, and conditionals
+let userName = prompt("Enter your name:");
+let userAge = parseInt(prompt("Enter your age:"));
+
+if (userAge >= 18) {
+  console.log(`${userName}, you are an adult.`);
+} else {
+  console.log(`${userName}, you are a minor.`);
+}
+
+// =============================
+// Part 2: Functions
+// =============================
+
+// Function to calculate total price with tax
+function calculateTotal(price, taxRate) {
+  return price + (price * taxRate);
+}
+
+console.log("Total with tax:", calculateTotal(100, 0.15));
+
+// Function to format greeting
+function greetUser(name) {
+  return `Hello, ${name}! Welcome to JavaScript.`;
+}
+
+console.log(greetUser(userName));
+
+// =============================
+// Part 3: Loops
+// =============================
+
+// For loop example
+for (let i = 5; i > 0; i--) {
+  console.log("Countdown:", i);
+}
+
+// While loop example
+let counter = 1;
+while (counter <= 3) {
+  console.log("Loop iteration:", counter);
+  counter++;
+}
+
+// =============================
+// Part 4: DOM Manipulation
+// =============================
+
+// Select elements
+const welcomeText = document.getElementById("welcome");
+const toggleBtn = document.getElementById("toggleBtn");
+const colorBtn = document.getElementById("colorBtn");
+const listBtn = document.getElementById("listBtn");
+const dynamicList = document.getElementById("dynamicList");
+
+// 1. Toggle text content
+toggleBtn.addEventListener("click", () => {
+  if (welcomeText.textContent.includes("Welcome")) {
+    welcomeText.textContent = "🎉 JavaScript is now controlling this text!";
+  } else {
+    welcomeText.textContent = "Welcome! Click the button to interact with JavaScript.";
+  }
+});
+
+// 2. Change background color
+colorBtn.addEventListener("click", () => {
+  document.body.style.backgroundColor =
+    document.body.style.backgroundColor === "lightblue" ? "white" : "lightblue";
+});
+
+// 3. Generate list items dynamically
+listBtn.addEventListener("click", () => {
+  dynamicList.innerHTML = ""; // clear previous items
+  let fruits = ["🍎 Apple", "🍌 Banana", "🍊 Orange"];
+  fruits.forEach(fruit => {
+    let li = document.createElement("li");
+    li.textContent = fruit;
+    dynamicList.appendChild(li);
+  });
+});
+
+
